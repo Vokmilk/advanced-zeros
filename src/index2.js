@@ -1,8 +1,8 @@
 var zerosCount,
 j = 0,
 i = 2,
-base=169,
-number=54022488;
+base=10,
+number=10;
 a = new Array(),
 b = new Array();
 d = new Array();
@@ -20,56 +20,33 @@ i++;
 while (i < base);
 a.push(i);
 alert("простые множители"+a); //закончили разложение базы на простые множетели
-i=1;
-j=0;
-b[0]=a[0]
-if (a[a.length]==a[a.length-1]){
-    do { 
-        if (b[0] == base) {}
-    else {
-       
-    if (b[i-1] % a[j] === 0){
-    b[i-1] = b[i-1]*a[j];
-    j++;
-    }
-    else {
-    b[i-1]=b[i-1]/a[j-1]
-    b[i]=a[j]
-    i++;
-    }}}
-    while (i < a.length-1 );
-        
-}
-else {
-do { 
-    if (b[0] == base) {}
-else {
-   
-if (b[i-1] % a[j] === 0){
-b[i-1] = b[i-1]*a[j];
-j++;
-}
-else {
-b[i-1]=b[i-1]/a[j-1]
-b[i]=a[j]
-i++;
-}}}
-while (i < a.length ); 
-}
-alert("простые множители в степени"+b) // разложили на степени простых чисел
-var k=1,
-m=0;
-for (i=0;i<b.length;i++){
+
+for (i=a.length;i>=0;i--) {
+    count=1;
+    
+    d[i]=0
+alert( "входное д"+d[i]);
+alert("входное к"+k);
+    if (a[i]==a[i-1]){
+ alert( "a[]i "+a[i]);
+ alert( "a[i-1]"+a[i-1]);
+ alert("совпадает до прибавления"+count);
+       count=count+1;
+ alert("совпадает после прибавления"+count);
+    };
 k=a[i];
-d[i]=0;
-do {
-    m=Math.floor(number/k) ;
-    d[i]=d[i]+m;
-    k=k*a[i];
-    alert(d);
-    alert(k);
-} while (number/k>1);
-};
+alert("входное к "+k);
+    do {
+        m=Math.floor(number/k) ;
+        d[i]=d[i]+m;
+        k=k*a[i];
+        alert( "считем количество нулей"+d);
+        alert("будем делить на"+k);
+    } while (number/k>1);
+ alert("совпадает"+count);
+    d[i]=d[i]/count;
+    alert("итоговое д "+d)
+}
 
 alert('значимый массив'+d);
 var zerosCount=d[0];
@@ -79,4 +56,4 @@ for (i=1;i<d.length;i++)  {
 }
 }                      // получили массив с количество нулем от каждой значимой цифры
 
-alert(zerosCount)
+alert('количество нулей'+ zerosCount)
